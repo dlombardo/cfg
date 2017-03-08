@@ -7,6 +7,7 @@
 (setq initial-frame-alist '((top + -550) (left + -1800) ))
 (global-auto-revert-mode t)
 
+
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
