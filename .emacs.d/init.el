@@ -25,6 +25,8 @@
 (require 'json-mode)
 (require 'js2-mode)
 
+(setq-default indent-tabs-mode nil)
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
