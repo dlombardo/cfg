@@ -2,10 +2,12 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (global-linum-mode t)
-(load-theme 'wombat t)
 ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq initial-frame-alist '((top + -550) (left + -1800) ))
 (global-auto-revert-mode t)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
@@ -28,6 +30,7 @@
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(load-theme 'monokai t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs$" . web-mode))
