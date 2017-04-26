@@ -26,14 +26,16 @@
 (require 'web-mode)
 (require 'json-mode)
 (require 'js2-mode)
+(setq js2-strict-missing-semi-warning nil)
 
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (electric-pair-mode 1)
 (load-theme 'monokai t)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("containers\\/.*\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs$" . web-mode))
 (setq web-mode-content-types-alist
   '(("jsx" . "\\.js[x]?\\'")))
@@ -53,6 +55,7 @@
 
 ;; use eslint with web-mode for jsx files
 (flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
