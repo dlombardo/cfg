@@ -40,6 +40,7 @@
 (setq web-mode-content-types-alist
   '(("jsx" . "\\.js[x]?\\'")))
 (setq-default js2-basic-offset 2)
+(setq css-indent-offset 2)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
