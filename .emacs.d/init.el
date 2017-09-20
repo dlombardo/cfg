@@ -26,7 +26,6 @@
 (require 'web-mode)
 (require 'json-mode)
 (require 'js2-mode)
-(setq js2-strict-missing-semi-warning nil)
 
 (setq-default indent-tabs-mode nil)
 
@@ -80,3 +79,4 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+(put 'dired-find-alternate-file 'disabled nil)
