@@ -39,6 +39,7 @@
 (setq web-mode-content-types-alist
   '(("jsx" . "\\.js[x]?\\'")))
 (setq-default js2-basic-offset 2)
+(setq-default js2-strict-trailing-comma-warning nil)
 (setq-default css-indent-offset 2)
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -47,6 +48,19 @@
 
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; use local eslint from node_modules before global
+;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
+(defun my/use-eslint-from-node-modules ()
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "node_modules"))
+         (eslint (and root
+                      (expand-file-name "node_modules/eslint/bin/eslint.js"
+                                        root))))
+    (when (and eslint (file-executable-p eslint))
+      (setq-local flycheck-javascript-eslint-executable eslint))))
+(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
