@@ -37,7 +37,7 @@
 (add-to-list 'auto-mode-alist '("containers\\/.*\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs$" . web-mode))
 (setq web-mode-content-types-alist
-  '(("jsx" . "\\.js[x]?\\'")))
+      '(("jsx" . "\\.js[x]?\\'")))
 (setq-default js2-basic-offset 2)
 (setq-default js2-strict-trailing-comma-warning nil)
 (setq-default css-indent-offset 2)
@@ -93,4 +93,8 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+(defun my-go-mode-hook ()
+  (setq tab-width 2)
+  (setq standard-indent 2))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 (put 'dired-find-alternate-file 'disabled nil)
