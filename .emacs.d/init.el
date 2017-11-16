@@ -28,6 +28,7 @@
 (require 'js2-mode)
 
 (setq-default indent-tabs-mode nil)
+(setq perl-indent-level 2)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (electric-pair-mode 1)
