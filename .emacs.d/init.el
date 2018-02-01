@@ -94,8 +94,15 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(add-to-list 'exec-path (getenv "GOBIN"))
 (defun my-go-mode-hook ()
+  ;; Use goimports instead of go-fmt
+  (setq gofmt-command "goimports")
+  ;; Call Gofmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save)
   (setq tab-width 2)
   (setq standard-indent 2))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
 (put 'dired-find-alternate-file 'disabled nil)
