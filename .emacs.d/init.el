@@ -28,6 +28,8 @@
 (require 'js2-mode)
 
 (setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+(setq standard-indent 2)
 (setq perl-indent-level 2)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -83,7 +85,7 @@
 ;; https://github.com/purcell/exec-path-from-shell
 ;; only need exec-path-from-shell on OSX
 ;; this hopefully sets up path and other vars better
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
 ;; adjust indents for web-mode to 2 spaces
@@ -95,14 +97,11 @@
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
-(add-to-list 'exec-path (getenv "GOBIN"))
 (defun my-go-mode-hook ()
   ;; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
   ;; Call Gofmt before saving
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  (setq tab-width 2)
-  (setq standard-indent 2))
+  (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (put 'dired-find-alternate-file 'disabled nil)
