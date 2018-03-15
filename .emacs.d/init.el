@@ -5,6 +5,7 @@
 ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq initial-frame-alist '((top + -550) (left + -1800) ))
 (global-auto-revert-mode t)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
