@@ -2,8 +2,14 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t
-inhibit-startup-echo-area-message t)
+      inhibit-startup-echo-area-message t)
+
 (global-linum-mode t)
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq initial-frame-alist '((top + -550) (left + -1800) ))
 (global-auto-revert-mode t)
