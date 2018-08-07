@@ -1,6 +1,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(setq inhibit-startup-message t
+inhibit-startup-echo-area-message t)
 (global-linum-mode t)
 ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq initial-frame-alist '((top + -550) (left + -1800) ))
