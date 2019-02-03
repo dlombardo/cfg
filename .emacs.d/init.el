@@ -114,3 +114,12 @@
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+(setq 
+    sr-speedbar-width 15
+    speedbar-use-images nil
+    speedbar-show-unknown-files t
+    )
+
+(when window-system
+    (sr-speedbar-open))
